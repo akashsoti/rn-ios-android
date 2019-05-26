@@ -8,6 +8,8 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, TextInput, Button} from 'react-native';
+import ListItem from "./src/components/ListItem/ListItem";
+import TextInputss from "./src/components/TextInputss/TextInputss";
 
 export default class App extends Component<Props> {
 
@@ -35,13 +37,15 @@ export default class App extends Component<Props> {
 
   render() {
     const placesOutput = this.state.places.map((place,i) => (
-      <Text key={i}>{place}</Text>
+      <ListItem key={i} placeName={place} />
     ));
     return (
       <View style={styles.container}>
-        <TextInput style={{width: 300, height: 50, borderColor: "black", borderWidth: 1}} value={this.state.placeName} placeholder="Hello" onChangeText={this.placeNameChangeHandler}/>
+        <View style={styles.textInputContainer}>
+          <TextInputss value={this.state.placeName} placeholder="Hello" onChangeText={this.placeNameChangeHandler}/>
+        </View>
         <Button title="Add" onPress={this.placeNameSubmitHandler}/>
-        <View>
+        <View style={styles.listContainer}>
           {placesOutput}
         </View>
       </View>
@@ -56,6 +60,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
+  listContainer: {
+    width: "100%"
+  },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
@@ -66,4 +73,7 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  textInputContainer: {
+    width: "60%"
+  }
 });
