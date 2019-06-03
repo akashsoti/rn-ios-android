@@ -12,7 +12,7 @@ export default class App extends Component {
   placeAddedHandler = placeName => {
     this.setState(prevState => {
       return {
-        places: prevState.places.concat({key: Math.random(),value:placeName})
+        places: prevState.places.concat({key: Math.random(), name: placeName, image: {uri: 'https://cdn.thecrazytourist.com/wp-content/uploads/2017/09/ccimage-shutterstock_397624165.jpg'}})
       };
     });
   };
@@ -43,5 +43,5 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "flex-start"
-  }
+	}
 });
