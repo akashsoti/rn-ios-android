@@ -11,7 +11,7 @@ const placeList = props => {
 				placeName={info.item.name} 
 				placeImage={info.item.image} 
 				onItemPressed={()=> 
-					props.onItemDeleted(info.item.key)}/>)} style={styles.listContainer}>
+					props.onItemSeleted(info.item.key)}/>)} style={styles.listContainer}>
 		</FlatList>
 	);
 };
